@@ -1,0 +1,36 @@
+from tkinter import *
+
+main = Tk()
+photo = PhotoImage(file="P:\GWlogo.gif") # specify the path to your file
+label = Label(main, image=photo)  #put the image in a label to disdaply it in the window
+label.grid(columnspan = 10)  # show the label on the screen
+
+TheLabel = Label(main, text='Customer Information Form')
+TheLabel.grid(columnspan = 10)
+newCust = Checkbutton(main, text = 'New Customer')
+newCust.grid(row = 10, columnspan = 2)
+oldCust = Checkbutton(main, text = 'Returning Customer')
+oldCust.grid(row = 11, columnspan = 2)
+
+f_name = Label(main, text = 'First Name')
+l_name = Label(main, text = 'Last Name')
+phone = Label(main, text = 'Phone')
+email = Label(main, text = 'Email Address')
+dob = Label(main, text = 'Birthday')
+f_name_entry = Entry(main)
+l_name_entry = Entry(main)
+phone_entry = Entry(main)
+email_entry = Entry(main)
+dob_entry = Entry(main)
+
+f_name.grid(row = 10, column = 4, sticky = E) #column always = 0 by default
+l_name.grid(row = 11, column = 4, sticky = E) #sticky function allowsfr alignment
+phone.grid(row = 12, column = 4, sticky = E)
+email.grid(row = 13, column = 4, sticky = E)
+dob.grid(row = 14, column = 4, sticky = E)
+
+f_name_entry.grid(row = 10, column = 5)
+l_name_entry.grid(row = 11, column = 5)
+phone_entry.grid(row = 12, column = 5)
+email_entry.grid(row = 13, column = 5)
+dob_entry.grid(row = 14, column = 5)

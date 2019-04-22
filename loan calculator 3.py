@@ -41,19 +41,16 @@ class LoanCalculator:
     # function computePayment calls the getMonthlyPayment function with arguments assigned the values from the user
     def computePayment(self):
         subtotal = self.getsubtotal(float(self.price.get()), int(self.quantity.get()), int(self.discount.get()))
-        grandtotal = self.gettaxes(float(self.discount.get()), float(self.salestax.get()))
+        grandtotal = float(self.subtotal.get()) + float(self.salestax.get())
         self.grandtotal.set(format(grandtotal, '10.2f'))   #output totalPayment formatted to two decimal places in the totalPaymentVar
         
     #calculate subtotal using  the formula provided    
     def getsubtotal(self, price, quantity, discount):
         discount = discount / 100
         subtotal_amt = price * quantity * (1 - discount)
+        tax_amt = subtotal_amt * .13
+        self.salestax.set(format(tax_amt, '10.2f')) 
         self.subtotal.set(format(subtotal_amt, '10.2f'))
         return subtotal_amt
-
-    def gettaxes(self, discountedprice, taxes):
-        tax_amt = subtotal * taxes
-        self.salestax.set(format(tax, '10.2f')) 
-        return (discountedprice + tax_amt)
 
 LoanCalculator()  # Create GUI 
